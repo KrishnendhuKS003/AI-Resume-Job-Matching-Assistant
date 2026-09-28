@@ -1,0 +1,35 @@
+{
+    "traditional_matching": {
+        "tfidf_test_roc_auc": 0.4912845428818854,
+        "semantic_test_roc_auc": 0.5123567639872576,
+        "hybrid_test_roc_auc": 0.5033624702316519
+    },
+    "classification_metrics": [
+        {
+            "Model": "TF-IDF",
+            "Accuracy": 0.5017199017199018,
+            "Precision": 0.48919449901768175,
+            "Recall": 0.5020161290322581,
+            "F1": 0.4955223880597015
+        },
+        {
+            "Model": "Semantic",
+            "Accuracy": 0.5213759213759214,
+            "Precision": 0.5088408644400786,
+            "Recall": 0.5221774193548387,
+            "F1": 0.5154228855721393
+        },
+        {
+            "Model": "Hybrid",
+            "Accuracy": 0.5194103194103195,
+            "Precision": 0.5068762278978389,
+            "Recall": 0.5201612903225806,
+            "F1": 0.5134328358208955
+        }
+    ],
+    "rag_structure_valid": true,
+    "matching_skill_consistency": 1.0,
+    "missing_skill_consistency": 1.0,
+    "retrieved_chunks": 3,
+    "retrieval_coverage": 1.0007707129094412
+}

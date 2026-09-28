@@ -1,0 +1,23 @@
+{
+    "hybrid_match_score": 45.42016134915499,
+    "match_category": "Moderate",
+    "matching_skills": [
+        "e-commerce"
+    ],
+    "missing_skills": [
+        "machine learning"
+    ],
+    "skill_score": 0.5,
+    "relevant_experience": [
+        "E-commerce Specialist, XYZ Corporation (2018-Present)",
+        "E-commerce Coordinator, ABC Retail (2015-2018)"
+    ],
+    "education_alignment": "solid",
+    "recommendations": [
+        "Machine Learning Knowledge",
+        "E-commerce Trends",
+        "Data-Driven Approach",
+        "Cross-Functional Collaboration",
+        "Continued Learning"
+    ]
+}

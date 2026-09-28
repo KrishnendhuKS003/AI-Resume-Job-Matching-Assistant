@@ -1,0 +1,934 @@
+:root {
+    --background: #f8f6f2;
+    --surface: #fffdf9;
+
+    --lavender: #eee9fb;
+    --lavender-hover: #e5def8;
+    --lavender-border: #d8d0ed;
+    --lavender-active-border: #9d91c5;
+    --lavender-text: #62588f;
+
+    --sage: #dceadf;
+    --sage-dark: #5f7c68;
+
+    --peach: #f8dfd2;
+    --peach-dark: #a87561;
+
+    --blue: #dcecf4;
+
+    --text: #35343b;
+    --text-soft: #5f5d66;
+    --muted: #7d7a83;
+
+    --border: #e7e2dc;
+    --white: #ffffff;
+
+    --shadow: 0 8px 28px rgba(70, 65, 80, 0.07);
+    --shadow-hover: 0 12px 32px rgba(70, 65, 80, 0.11);
+
+    --radius: 18px;
+}
+
+
+/* =========================================================
+   MAIN
+   ========================================================= */
+
+.stApp {
+    background: var(--background);
+    color: var(--text);
+}
+
+.main .block-container {
+    max-width: 1180px;
+    padding-top: 1.8rem;
+    padding-bottom: 4rem;
+}
+
+
+/* =========================================================
+   STREAMLIT CLEANUP
+   ========================================================= */
+
+#MainMenu {
+    visibility: hidden;
+}
+
+footer {
+    visibility: hidden;
+}
+
+header[data-testid="stHeader"] {
+    background: transparent;
+}
+
+
+/* =========================================================
+   TYPOGRAPHY
+   ========================================================= */
+
+html,
+body,
+[class*="css"] {
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    color: var(--text) !important;
+    font-weight: 700 !important;
+}
+
+p,
+li,
+label {
+    color: var(--text);
+}
+
+.small-muted {
+    color: var(--muted);
+    font-size: 0.94rem;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   BRAND
+   ========================================================= */
+
+.brand {
+    font-size: 1.15rem;
+    font-weight: 750;
+    color: var(--text);
+    padding-top: 9px;
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+/*
+   All navigation buttons use the SAME pastel lavender theme.
+
+   The current page is indicated only by:
+   - slightly larger size
+   - darker lavender border
+
+   There is NO dark active fill and NO red colour.
+*/
+
+
+/* Normal navigation buttons */
+
+div.stButton > button {
+    border-radius: 13px !important;
+
+    font-weight: 650 !important;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        border 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+/*
+   Secondary Streamlit buttons.
+
+   These are used for normal navigation buttons.
+*/
+
+div.stButton > button[kind="secondary"] {
+    background: var(--lavender) !important;
+
+    color: var(--lavender-text) !important;
+
+    border: 1px solid var(--lavender-border) !important;
+
+    min-height: 42px !important;
+
+    box-shadow: none !important;
+}
+
+
+/*
+   Hovering over a normal navigation/action button.
+
+   Only a subtle lift.
+   No colour change.
+*/
+
+div.stButton > button[kind="secondary"]:hover {
+    background: var(--lavender) !important;
+
+    color: var(--lavender-text) !important;
+
+    border-color: var(--lavender-border) !important;
+
+    transform: translateY(-1px) scale(1.015);
+
+    box-shadow:
+        0 5px 14px rgba(98, 88, 143, 0.07) !important;
+}
+
+
+/*
+   Primary buttons.
+
+   Used for:
+   - current navigation page
+   - Get Started
+   - other primary actions
+
+   Same lavender fill.
+   No dark purple fill.
+*/
+
+div.stButton > button[kind="primary"] {
+    background: var(--lavender) !important;
+
+    color: var(--lavender-text) !important;
+
+    border: 1px solid var(--lavender-border) !important;
+
+    border-radius: 13px !important;
+
+    min-height: 48px !important;
+
+    font-weight: 700 !important;
+
+    box-shadow:
+        0 5px 15px rgba(98, 88, 143, 0.08) !important;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        border 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+/*
+   Primary button hover.
+
+   Still lavender.
+   No colour switching.
+*/
+
+div.stButton > button[kind="primary"]:hover {
+    background: var(--lavender) !important;
+
+    color: var(--lavender-text) !important;
+
+    border-color: var(--lavender-border) !important;
+
+    transform: translateY(-1px) scale(1.015);
+
+    box-shadow:
+        0 8px 20px rgba(98, 88, 143, 0.10) !important;
+}
+
+
+/*
+   Current navigation button.
+
+   Streamlit identifies the current navigation page
+   using the primary button.
+
+   The visual difference is intentionally subtle:
+   - 48px height instead of 42px
+   - slightly stronger lavender border
+   - same lavender fill
+*/
+
+div.stButton > button[kind="primary"] {
+    border-color: var(--lavender-active-border) !important;
+
+    transform: scale(1.035);
+
+    z-index: 2;
+}
+
+
+/*
+   Keep the active button's appearance consistent on hover.
+*/
+
+div.stButton > button[kind="primary"]:hover {
+    background: var(--lavender) !important;
+
+    color: var(--lavender-text) !important;
+
+    border-color: var(--lavender-active-border) !important;
+
+    transform: scale(1.045);
+}
+
+
+/* =========================================================
+   LEGACY NAVIGATION CLASSES
+   ========================================================= */
+
+/*
+   Kept for compatibility with any existing navigation
+   elements that may still use these classes.
+*/
+
+.nav-button button {
+    background: var(--lavender) !important;
+
+    color: var(--lavender-text) !important;
+
+    border: 1px solid var(--lavender-border) !important;
+
+    border-radius: 13px !important;
+
+    min-height: 42px !important;
+
+    font-weight: 650 !important;
+
+    box-shadow: none !important;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        border 0.2s ease,
+        transform 0.2s ease,
+        min-height 0.2s ease;
+}
+
+.nav-button button:hover {
+    background: var(--lavender) !important;
+
+    color: var(--lavender-text) !important;
+
+    border-color: var(--lavender-border) !important;
+
+    transform: translateY(-1px) scale(1.015);
+}
+
+
+.nav-current button {
+    background: var(--lavender) !important;
+
+    color: var(--lavender-text) !important;
+
+    border: 1px solid var(--lavender-active-border) !important;
+
+    border-radius: 13px !important;
+
+    min-height: 48px !important;
+
+    font-weight: 700 !important;
+
+    box-shadow:
+        0 5px 15px rgba(98, 88, 143, 0.08) !important;
+
+    transform: scale(1.035);
+}
+
+
+/* =========================================================
+   STANDARD PASTEL ACTION BUTTON
+   ========================================================= */
+
+.action-button button {
+    background: var(--lavender) !important;
+
+    color: var(--lavender-text) !important;
+
+    border: 1px solid var(--lavender-border) !important;
+
+    border-radius: 13px !important;
+
+    min-height: 48px !important;
+
+    font-weight: 700 !important;
+
+    box-shadow:
+        0 5px 15px rgba(98, 88, 143, 0.08) !important;
+}
+
+.action-button button:hover {
+    background: var(--lavender) !important;
+
+    color: var(--lavender-text) !important;
+
+    border-color: var(--lavender-border) !important;
+
+    transform: translateY(-1px) scale(1.015);
+
+    box-shadow:
+        0 8px 20px rgba(98, 88, 143, 0.12) !important;
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero {
+    background:
+        linear-gradient(
+            135deg,
+            #eee9fb 0%,
+            #f9f7f3 52%,
+            #e8f1eb 100%
+        );
+
+    border: 1px solid var(--border);
+
+    border-radius: 28px;
+
+    padding: 68px 58px;
+
+    margin-bottom: 32px;
+
+    box-shadow: var(--shadow);
+}
+
+.hero-badge {
+    display: inline-block;
+
+    background: var(--lavender);
+
+    color: var(--lavender-text);
+
+    padding: 8px 15px;
+
+    border-radius: 30px;
+
+    font-size: 0.78rem;
+
+    font-weight: 700;
+
+    letter-spacing: 0.04em;
+
+    margin-bottom: 20px;
+}
+
+.hero-title {
+    color: var(--text);
+
+    font-size: 3.1rem;
+
+    font-weight: 750;
+
+    line-height: 1.15;
+
+    max-width: 780px;
+
+    margin-bottom: 20px;
+}
+
+.hero-description {
+    color: var(--muted);
+
+    max-width: 760px;
+
+    font-size: 1.08rem;
+
+    line-height: 1.75;
+}
+
+
+/* =========================================================
+   FEATURE CARDS
+   ========================================================= */
+
+.feature-card {
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    padding: 25px;
+
+    min-height: 185px;
+
+    box-shadow: var(--shadow);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-4px);
+
+    box-shadow: var(--shadow-hover);
+}
+
+.feature-icon {
+    width: 48px;
+    height: 48px;
+
+    border-radius: 14px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 1.35rem;
+
+    margin-bottom: 17px;
+}
+
+.icon-lavender {
+    background: var(--lavender);
+}
+
+.icon-sage {
+    background: var(--sage);
+}
+
+.icon-peach {
+    background: var(--peach);
+}
+
+.icon-blue {
+    background: var(--blue);
+}
+
+.feature-title {
+    color: var(--text);
+
+    font-weight: 700;
+
+    font-size: 1.02rem;
+
+    margin-bottom: 8px;
+}
+
+.feature-text {
+    color: var(--muted);
+
+    font-size: 0.88rem;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   SECTION CARD
+   ========================================================= */
+
+.section-card {
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    padding: 30px;
+
+    margin-bottom: 22px;
+
+    box-shadow: var(--shadow);
+}
+
+
+/* =========================================================
+   PAGE HEADER
+   ========================================================= */
+
+.page-header {
+    margin-bottom: 30px;
+}
+
+.page-label {
+    color: var(--lavender-text);
+
+    font-size: 0.78rem;
+
+    font-weight: 750;
+
+    letter-spacing: 0.1em;
+
+    text-transform: uppercase;
+
+    margin-bottom: 7px;
+}
+
+.page-title {
+    color: var(--text);
+
+    font-size: 2.35rem;
+
+    font-weight: 750;
+
+    line-height: 1.2;
+
+    margin-bottom: 10px;
+}
+
+.page-description {
+    color: var(--muted);
+
+    max-width: 720px;
+
+    line-height: 1.65;
+
+    font-size: 1rem;
+}
+
+
+/* =========================================================
+   UPLOAD AREA
+   ========================================================= */
+
+[data-testid="stFileUploader"] {
+    background:
+        linear-gradient(
+            135deg,
+            #f3effb,
+            #fffdf9
+        ) !important;
+
+    border: 2px dashed #bcb1d7 !important;
+
+    border-radius: 18px !important;
+
+    padding: 24px !important;
+
+    min-height: 125px;
+
+    box-shadow: var(--shadow) !important;
+}
+
+[data-testid="stFileUploader"]:hover {
+    background:
+        linear-gradient(
+            135deg,
+            #eee9fb,
+            #fffdf9
+        ) !important;
+
+    border-color: #9c91c0 !important;
+}
+
+[data-testid="stFileUploader"] button {
+    background: var(--lavender) !important;
+    color: var(--lavender-text) !important;
+
+    border: 1px solid var(--lavender-border) !important;
+
+    border-radius: 10px !important;
+
+    min-height: 42px !important;
+
+    font-weight: 600 !important;
+
+    box-shadow: none !important;
+}
+
+[data-testid="stFileUploader"] button:hover {
+    background: var(--lavender-hover) !important;
+    color: var(--lavender-text) !important;
+
+    border: 1px solid var(--lavender-border) !important;
+}
+
+/* =========================================================
+   TEXT AREA
+   ========================================================= */
+
+.stTextArea textarea {
+    background: var(--surface) !important;
+
+    color: var(--text) !important;
+
+    border: 1px solid var(--border) !important;
+
+    border-radius: 15px !important;
+
+    padding: 16px !important;
+
+    font-size: 0.95rem !important;
+
+    line-height: 1.6 !important;
+}
+
+.stTextArea textarea:focus {
+    border-color: #aaa0c8 !important;
+
+    box-shadow:
+        0 0 0 1px #aaa0c8 !important;
+}
+
+
+/* =========================================================
+   SCORE
+   ========================================================= */
+
+.score-card {
+    background:
+        linear-gradient(
+            135deg,
+            #eee9fb,
+            #f9f6f1
+        );
+
+    border: 1px solid var(--border);
+
+    border-radius: 24px;
+
+    padding: 38px 30px;
+
+    text-align: center;
+
+    box-shadow: var(--shadow);
+}
+
+.score-label {
+    color: var(--muted);
+
+    font-size: 0.78rem;
+
+    font-weight: 750;
+
+    letter-spacing: 0.1em;
+}
+
+.score-number {
+    color: var(--lavender-text);
+
+    font-size: 4rem;
+
+    font-weight: 800;
+
+    line-height: 1;
+
+    margin: 14px 0;
+}
+
+.match-category {
+    display: inline-block;
+
+    background: var(--sage);
+
+    color: var(--sage-dark);
+
+    padding: 8px 18px;
+
+    border-radius: 30px;
+
+    font-weight: 700;
+
+    font-size: 0.9rem;
+}
+
+
+/* =========================================================
+   SKILL CARD
+   ========================================================= */
+
+.skill-card {
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    padding: 27px;
+
+    min-height: 190px;
+
+    box-shadow: var(--shadow);
+}
+
+.skill-match-score {
+    color: var(--sage-dark);
+
+    font-size: 2.25rem;
+
+    font-weight: 800;
+
+    margin: 8px 0 5px;
+}
+
+
+/* =========================================================
+   INFO CARD
+   ========================================================= */
+
+.info-card {
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    padding: 27px;
+
+    box-shadow: var(--shadow);
+}
+
+.info-title {
+    color: var(--text);
+
+    font-size: 1.08rem;
+
+    font-weight: 750;
+
+    margin-bottom: 10px;
+}
+
+.info-content {
+    color: var(--text-soft);
+
+    line-height: 1.7;
+
+    font-size: 0.94rem;
+}
+
+
+/* =========================================================
+   SKILL PILLS
+   ========================================================= */
+
+.skill-pill {
+    display: inline-block;
+
+    background: var(--sage);
+
+    color: var(--sage-dark);
+
+    border-radius: 22px;
+
+    padding: 8px 13px;
+
+    margin: 4px 4px 4px 0;
+
+    font-size: 0.82rem;
+
+    font-weight: 650;
+}
+
+.missing-pill {
+    display: inline-block;
+
+    background: var(--peach);
+
+    color: var(--peach-dark);
+
+    border-radius: 22px;
+
+    padding: 8px 13px;
+
+    margin: 4px 4px 4px 0;
+
+    font-size: 0.82rem;
+
+    font-weight: 650;
+}
+
+
+/* =========================================================
+   RECOMMENDATION
+   ========================================================= */
+
+.recommendation {
+    background: #f4f0fb;
+
+    border-left: 4px solid var(--lavender-border);
+
+    border-radius: 12px;
+
+    padding: 15px 18px;
+
+    margin: 10px 0;
+
+    color: var(--text);
+
+    line-height: 1.55;
+
+    font-size: 0.92rem;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.footer {
+    text-align: center;
+
+    color: var(--muted);
+
+    font-size: 0.82rem;
+
+    margin-top: 48px;
+
+    padding-top: 22px;
+
+    border-top: 1px solid var(--border);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .hero {
+        padding: 48px 32px;
+    }
+
+    .hero-title {
+        font-size: 2.4rem;
+    }
+
+    .page-title {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .main .block-container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .hero {
+        padding: 38px 25px;
+        border-radius: 22px;
+    }
+
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-description {
+        font-size: 0.95rem;
+    }
+
+    .score-number {
+        font-size: 3.2rem;
+    }
+
+    .section-card,
+    .skill-card,
+    .info-card {
+        padding: 22px;
+    }
+
+    .brand {
+        font-size: 1rem;
+    }
+}
